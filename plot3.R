@@ -1,5 +1,5 @@
 ##loading data
-test <- read.table("exploratoryDataAnalysis//data//household_power_consumption.txt", header = TRUE, sep = ";", colClasses = "character")
+test <- read.table(unzip("data//household_power_consumption.zip"), header = TRUE, sep = ";", colClasses = "character")
 
 test$Date <- as.Date(test$Date, "%d/%m/%Y")
 
@@ -20,10 +20,6 @@ datetime <- strptime(datetime, "%Y-%m-%d %H:%M:%S")
 ##plots
 
 par(mfrow = c(1,1))
-
-plot(datetime, testdata$Sub_metering_1, type = "l" , col = "black", ylab = "Energy sub metering", xlab = "")   # Put Sub_metering_1 column
-lines(datetime, testdata$Sub_metering_2, type = "l" , col = "red")  # Put Sub_metering_2 column
-lines(datetime, testdata$Sub_metering_3, type = "l" , col = "blue") # Put Sub_metering_3 column
 
 png(file = "./plot3.png", width = 480, height = 480, units = "px")
 plot(datetime, testdata$Sub_metering_1, type = "l" , col = "black", ylab = "Energy sub metering", xlab = "")   # Put Sub_metering_1 column

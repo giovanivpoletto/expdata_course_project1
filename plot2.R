@@ -1,5 +1,5 @@
 ##loading data
-test <- read.table("exploratoryDataAnalysis//data//household_power_consumption.txt", header = TRUE, sep = ";", colClasses = "character")
+test <- read.table(unzip("data//household_power_consumption.zip"), header = TRUE, sep = ";", colClasses = "character")
 
 test$Date <- as.Date(test$Date, "%d/%m/%Y")
 
@@ -20,8 +20,6 @@ datetime <- strptime(datetime, "%Y-%m-%d %H:%M:%S")
 ##plots
 
 par(mfrow = c(1,1))
-
-plot(datetime,testdata$Global_active_power, ylab = "Global Active Power (kilowatts)", xlab = "", type = "l")
 
 png(file = "./plot2.png", width = 480, height = 480, units = "px")
 plot(datetime,testdata$Global_active_power, ylab = "Global Active Power (kilowatts)", xlab = "", type = "l")

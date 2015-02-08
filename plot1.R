@@ -1,5 +1,5 @@
 ##Loading data
-test <- read.table("data//household_power_consumption.txt", header = TRUE, sep = ";", colClasses = "character")
+test <- read.table(unzip("data//household_power_consumption.zip"), header = TRUE, sep = ";", colClasses = "character")
 
 test$Date <- as.Date(test$Date, "%d/%m/%Y")
 
@@ -17,8 +17,6 @@ testdata$Sub_metering_3 <- as.numeric(testdata$Sub_metering_3)
 ##plots
 
 par(mfrow = c(1,1))
-
-hist(testdata$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)" , col = "red")
 
 png(file = "./plot1.png", width = 480, height = 480, units = "px")
 hist(testdata$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)" , col = "red")
